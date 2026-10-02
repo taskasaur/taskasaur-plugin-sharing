@@ -1,0 +1,53 @@
+[
+  {
+    "id": "grants",
+    "pluginId": "sharing",
+    "name": "Sharing",
+    "version": 1,
+    "fields": [
+      {
+        "id": "resource_id",
+        "label": "Resource",
+        "pgType": "uuid",
+        "required": true,
+        "nullable": false,
+        "array": false,
+        "sensitive": false,
+        "reference": "resources",
+        "control": "reference"
+      },
+      {
+        "id": "subject_id",
+        "label": "Person",
+        "pgType": "uuid",
+        "required": true,
+        "nullable": false,
+        "array": false,
+        "sensitive": false,
+        "reference": "people",
+        "control": "reference"
+      },
+      {
+        "id": "role",
+        "label": "Role",
+        "pgType": "text",
+        "required": true,
+        "nullable": false,
+        "array": false,
+        "choices": ["viewer", "commenter", "editor"],
+        "default": "viewer",
+        "control": "select",
+        "sensitive": false
+      },
+      {
+        "id": "expires_at",
+        "label": "Expires",
+        "pgType": "timestamp with time zone",
+        "required": false,
+        "nullable": true,
+        "array": false,
+        "sensitive": false
+      }
+    ]
+  }
+]

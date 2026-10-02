@@ -1,0 +1,67 @@
+{
+  "id": "sharing",
+  "name": "Sharing",
+  "description": "Scoped resource sharing and permissions.",
+  "version": "1.0.0",
+  "platformApi": "^1.0.0",
+  "fieldSchemaApi": "^1.0.0",
+  "publisher": "taskasaur",
+  "license": "GPL-3.0-only",
+  "entrypoints": {
+    "browser": "browser.mjs"
+  },
+  "ui": {
+    "mode": "shared",
+    "apiVersion": "^1.0.0",
+    "surfaces": ["sharing"]
+  },
+  "storage": {
+    "local": {
+      "mode": "dexie",
+      "collections": ["grants"]
+    }
+  },
+  "permissions": ["sharing.read", "sharing.write"],
+  "dependencies": [],
+  "features": {},
+  "sharedServices": [
+    {
+      "id": "core.records",
+      "version": "^1",
+      "optional": false
+    },
+    {
+      "id": "core.access",
+      "version": "^1",
+      "optional": false
+    },
+    {
+      "id": "core.ui",
+      "version": "^1",
+      "optional": false
+    },
+    {
+      "id": "core.workspace",
+      "version": "^1",
+      "optional": false
+    },
+    {
+      "id": "core.sync",
+      "version": "^1",
+      "optional": false
+    },
+    {
+      "id": "core.storage.local",
+      "version": "^1",
+      "optional": false
+    }
+  ],
+  "provides": {
+    "commands": ["grants.list", "grants.put", "grants.delete"],
+    "events": ["grants.changed"]
+  },
+  "consumes": {
+    "commands": ["grants.list", "grants.put", "grants.delete"],
+    "events": []
+  }
+}
